@@ -1,5 +1,0 @@
-numpy
-pillow
-av
-torch
-torchvision

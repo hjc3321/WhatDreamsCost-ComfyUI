@@ -1,15 +1,8 @@
 [project]
 name = "WhatDreamsCost-ComfyUI"
 description = "A variety of custom ComfyUI nodes and workflows for creatives."
-version = "1.3.6"
+version = "1.3.7"
 license = {file = "LICENSE"} 
-dependencies = [
-    "numpy",
-    "pillow",
-    "av",
-    "torch",
-    "torchvision"
-]
 # classifiers = [
 #     # For OS-independent nodes (works on all operating systems)
 #     "Operating System :: OS Independent",
