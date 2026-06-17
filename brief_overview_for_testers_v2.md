@@ -63,6 +63,8 @@ Also there is a split at playhead option. This will allow you split (or seperate
 16. Snapping: Snapping/magnet mode is on by default. this will snap various things on the timeline. It can be toggled by hitting "s" or by clicking the magnet button.
 <img width="941" height="689" alt="image" src="https://github.com/user-attachments/assets/11a2502e-7608-4a9c-b649-040b1a88205e" />
 
+17. NAG Support
+
 And alot more, but this is the main stuff that may have bugs (i think i got most of the bugs out, but let me know if you find anything).
 
 Also if you can think of anything that can be improved let me know!
