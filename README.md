@@ -2,9 +2,11 @@
 
 This will be a collection of free resources for ComfyUI.
 
-Hopefully it will make creating cool stuff easier.
+Hopefully it will make creating cool stuff easier!
 
-All of my nodes are created with the help of AI, so there may or may not be redundant, messy code.
+Also if you want to support this project or my channel I did make a Ko-Fi due to popular demand lol (anything helps!)
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/J5N221K0D5)
 
 ## ▶️ YouTube Tutorial Videos
 
