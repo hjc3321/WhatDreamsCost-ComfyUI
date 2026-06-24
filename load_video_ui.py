@@ -72,8 +72,8 @@ class LoadVideoUI:
             }
         }
 
-    RETURN_TYPES = ("IMAGE", "AUDIO", "FLOAT", "INT", "IMAGE", "AUDIO", "INT")
-    RETURN_NAMES = ("images", "audio", "duration", "frame_count", "full_images", "full_audio", "full_frame_count")
+    RETURN_TYPES = ("IMAGE", "AUDIO", "FLOAT", "INT", "IMAGE", "AUDIO", "INT", "INT", "INT")
+    RETURN_NAMES = ("images", "audio", "duration", "frame_count", "full_images", "full_audio", "full_frame_count", "start_frame", "end_frame")
     FUNCTION = "load_video"
     CATEGORY = "WhatDreamsCost"
 
@@ -82,7 +82,7 @@ class LoadVideoUI:
             # Return blank defaults if no video is loaded
             empty_image = torch.zeros((1, 512, 512, 3), dtype=torch.float32)
             empty_audio = {"waveform": torch.zeros((1, 1, 44100)), "sample_rate": 44100}
-            return (empty_image, empty_audio, 0.0, 0, empty_image, empty_audio)
+            return (empty_image, empty_audio, 0.0, 0, empty_image, empty_audio, 0, 0, 0)
 
         # 1. Resolve path using ComfyUI standard paths or Absolute Path
         video_path = video  # Try exact/absolute path first
@@ -454,4 +454,9 @@ class LoadVideoUI:
         # Output the full video frame count
         full_frame_count = image_tensor.shape[0]
 
-        return (trimmed_image_tensor, trimmed_audio_dict, final_duration_sec, frame_count, image_tensor, audio_dict, full_frame_count)
+        # Calculate actual start/end frame indices for output
+        fr = float(frame_rate) if frame_rate > 0 else 24.0
+        output_start_frame = int(trim_start_time * fr)
+        output_end_frame = int(trim_end_time * fr) if trim_end_time != float('inf') else full_frame_count
+
+        return (trimmed_image_tensor, trimmed_audio_dict, final_duration_sec, frame_count, image_tensor, audio_dict, full_frame_count, output_start_frame, output_end_frame)
